@@ -51,3 +51,19 @@ Test(Parts, test_Parts_Legs_constructor, .init = redirect_all_stdout)
     legs.informations();
 	cr_assert_stdout_eq_str("[Parts] Legs L-01 status : OK\n");
 }
+
+Test(Parts, test_Parts_Head_constructor, .init = redirect_all_stdout)
+{
+    Head head;
+
+    cr_assert(head.serial() == "H-01");
+    cr_assert(head.isFunctional() == true);
+
+    Head head2("Head-01", false);
+
+    cr_assert(head2.serial() == "Head-01");
+    cr_assert(head2.isFunctional() == false);
+
+    head.informations();
+	cr_assert_stdout_eq_str("[Parts] Head H-01 status : OK\n");
+}

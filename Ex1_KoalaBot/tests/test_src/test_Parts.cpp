@@ -45,3 +45,26 @@ void        Legs::informations(void)
     std::cout   << "[Parts] Legs " << _serial << " status : "
                 << (isFunctional() ? "OK" : "KO") << std::endl; 
 }
+
+Head::Head(std::string const &serial, bool functional) :    _serial(serial),
+                                                            _functional(functional)
+{}
+
+Head::~Head(void)
+{}
+
+std::string &Head::serial(void)
+{
+    return _serial;
+}
+
+bool        Head::isFunctional(void)
+{
+    return _functional;
+}
+
+void        Head::informations(void)
+{
+    std::cout   << "[Parts] Head " << _serial << " status : "
+                << (isFunctional() ? "OK" : "KO") << std::endl; 
+}
