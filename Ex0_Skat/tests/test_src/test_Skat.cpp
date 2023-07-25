@@ -49,3 +49,9 @@ void                Skat::useStimPaks(void)
     else
         std::cout << "Mediiiiiic" << std::endl;
 }
+
+void                Skat::status(void)
+{
+    std::cout   << "Soldier " << _name << " reporting " << _stimPaks
+                << " stimpaks remaining sir!" << std::endl;
+}

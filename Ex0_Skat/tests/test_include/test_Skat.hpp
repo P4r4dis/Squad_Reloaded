@@ -15,16 +15,7 @@ class                       Skat
         void                shareStimPaks(int number, int stock);
         void                addStimPaks(unsigned int number);
         void                useStimPaks(void);
-        // [...]conststimPaks () ;
-        // std :: string& name () ;
-        // void
-        // void
-        // void
-        // void
-        // shareStimPaks ( int number , [...] stock ) ;
-        // addStimPaks ( unsigned int number ) ;
-        // useStimPaks () ;
-        // status () ;
+        void                status(void);
     private:
         const std::string   _name;
         int                 _stimPaks;
