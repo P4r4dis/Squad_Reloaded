@@ -11,6 +11,8 @@ class                       Skat
 
         int                 stimPaks(void);
         const std::string   &name(void);
+
+        void                shareStimPaks(int number, int stock);
         
         // [...]conststimPaks () ;
         // std :: string& name () ;
