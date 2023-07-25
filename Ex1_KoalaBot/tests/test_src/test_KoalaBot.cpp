@@ -10,22 +10,22 @@ KoalaBot::KoalaBot(const std::string &serial) : _serial(serial),
 KoalaBot::~KoalaBot(void)
 {}
 
-const Arms          &KoalaBot::getArms(void) const
+Arms          &KoalaBot::getArms(void) const
 {
     return *_arms;
 }
 
-const Legs          &KoalaBot::getLegs(void) const
+Legs          &KoalaBot::getLegs(void) const
 {
     return *_legs;
 }
 
-const Head          &KoalaBot::getHead(void) const
+Head          &KoalaBot::getHead(void) const
 {
     return *_head;
 }
 
-const std::string   &KoalaBot::getSerial(void) const
+std::string   KoalaBot::getSerial(void) const
 {
     return _serial;
 }
@@ -36,5 +36,20 @@ void                KoalaBot::setPart(const Arms &arms,
 {
     _arms = std::make_unique<Arms>(arms);
     _legs = std::make_unique<Legs>(legs);
+    _head = std::make_unique<Head>(head);
+}
+
+void                KoalaBot::swapParts(const Arms &arms)
+{
+    _arms = std::make_unique<Arms>(arms);
+}
+
+void                KoalaBot::swapParts(const Legs &legs)
+{
+    _legs = std::make_unique<Legs>(legs);
+}
+
+void                KoalaBot::swapParts(const Head &head)
+{
     _head = std::make_unique<Head>(head);
 }

@@ -98,3 +98,45 @@ Test(KoalaBot, test_KoalaBot_setParts)//, .init = redirect_all_stdout)
     cr_assert_not_null(&kb.getHead());
 	// cr_assert_stdout_eq_str("[Parts] Head H-01 status : OK\n");
 }
+
+
+Test(KoalaBot, test_KoalaBot_swapParts)//, .init = redirect_all_stdout)
+{
+    KoalaBot    kb;
+    Arms        arms;
+    Legs        legs;
+    Head        head;
+
+    Arms        arms2("A", false);
+    Legs        legs2("L", false);
+    Head        head2("H", false);
+
+    cr_assert(kb.getSerial() == "Bob-01");
+    cr_assert_null(&kb.getArms());
+    cr_assert_null(&kb.getLegs());
+    cr_assert_null(&kb.getHead());
+
+    kb.setPart(arms, legs, head);
+    cr_assert_not_null(&kb.getArms());
+    cr_assert_not_null(&kb.getLegs());
+    cr_assert_not_null(&kb.getHead());
+
+    cr_assert(kb.getArms().serial() == "A-01"); 
+    cr_assert(kb.getLegs().serial() == "L-01"); 
+    cr_assert(kb.getHead().serial() == "H-01"); 
+    cr_assert(kb.getArms().isFunctional() == true); 
+    cr_assert(kb.getLegs().isFunctional() == true); 
+    cr_assert(kb.getHead().isFunctional() == true); 
+
+    kb.swapParts(arms2);
+    kb.swapParts(legs2);
+    kb.swapParts(head2);
+
+    cr_assert(kb.getArms().serial() == "A"); 
+    cr_assert(kb.getLegs().serial() == "L"); 
+    cr_assert(kb.getHead().serial() == "H"); 
+    cr_assert(kb.getArms().isFunctional() == false); 
+    cr_assert(kb.getLegs().isFunctional() == false); 
+    cr_assert(kb.getHead().isFunctional() == false); 
+	// cr_assert_stdout_eq_str("[Parts] Head H-01 status : OK\n");
+}
