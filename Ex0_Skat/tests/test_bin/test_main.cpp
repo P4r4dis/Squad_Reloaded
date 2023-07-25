@@ -49,3 +49,17 @@ Test(Skat, test_Skat_addStimPaks, .init = redirect_all_stdout)
 	cr_assert_stdout_eq_str(
         "Hey boya, did you forget something?\n");
 }
+
+Test(Skat, test_Skat_useStimPaks, .init = redirect_all_stdout)
+{
+    Skat    skat("bob", 1);
+
+    cr_assert(skat.stimPaks() == 1);
+    skat.useStimPaks();
+    cr_assert(skat.stimPaks() == 0);
+    skat.useStimPaks();
+    cr_assert(skat.stimPaks() == 0);
+	cr_assert_stdout_eq_str(
+        "Time to kick some ass and chew bubble gum.\n"
+        "Mediiiiiic\n");
+}
