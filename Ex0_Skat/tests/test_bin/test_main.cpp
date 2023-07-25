@@ -75,3 +75,21 @@ Test(Skat, test_Skat_status, .init = redirect_all_stdout)
 	cr_assert_stdout_eq_str(
         "Soldier bob reporting 15 stimpaks remaining sir!\n");
 }
+
+Test(Skat, test_Skat_mainFunction, .init = redirect_all_stdout)
+{
+    Skat    s("Junior", 5);
+
+    cr_assert(s.stimPaks() == 5);
+    cr_assert(s.name() == "Junior");
+
+    std::cout << "Soldier " << s.name() << std::endl;
+    s.status();
+    s.useStimPaks();
+    cr_assert(s.stimPaks() == 4);
+
+	cr_assert_stdout_eq_str(
+        "Soldier Junior\n"
+        "Soldier Junior reporting 5 stimpaks remaining sir!\n"
+        "Time to kick some ass and chew bubble gum.\n");
+}

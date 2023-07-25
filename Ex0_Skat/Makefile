@@ -5,7 +5,7 @@ SRC_PATH	=	./src
 TST_PATH	=	./tests
 INC_PATH	=	./include
 
-NAME		=	Ex4
+NAME		=	Ex0
 TEST_NAME 	= 	test_$(NAME)
 ##############################################
 
@@ -14,11 +14,7 @@ INCFLAGS	+=	-I $(INC_PATH)
 CPPFLAGS	+= -Wall -Wextra -Werror $(INCFLAGS) -W -std=c++23
 
 
-SRCS		=	$(SRC_PATH)/Federation.cpp \
-				$(SRC_PATH)/WarpSystem.cpp \
-				$(SRC_PATH)/Borg.cpp \
-				$(SRC_PATH)/BorgQueen.cpp \
-				$(SRC_PATH)/Admiral.cpp \
+SRCS		=	$(SRC_PATH)/Skat.cpp \
 				$(BIN_PATH)/main.cpp
 
 SRC_TEST	=	$(TST_PATH)/$(NAME)_test.cpp
