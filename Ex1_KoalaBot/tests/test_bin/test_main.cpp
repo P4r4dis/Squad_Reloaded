@@ -26,3 +26,12 @@ Test(Parts, test_Parts_Arms_constructor)//, .init = redirect_all_stdout)
     cr_assert(arms2.isFunctional() == false);
 	// cr_assert_stdout_eq_str("");
 }
+
+Test(Parts, test_Parts_Arms_informations, .init = redirect_all_stdout)
+{
+    Arms arms;
+
+    arms.informations();
+	cr_assert_stdout_eq_str(
+        "[Parts] Arms A-01 status : OK\n");
+}

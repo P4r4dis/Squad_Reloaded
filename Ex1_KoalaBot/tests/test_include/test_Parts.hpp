@@ -11,6 +11,7 @@ class                       Arms
 
         std::string         &serial(void);
         bool                isFunctional(void);
+        void                informations(void);
     private:
         std::string         _serial;
         bool                _functional;

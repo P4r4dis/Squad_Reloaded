@@ -16,3 +16,9 @@ bool        Arms::isFunctional(void)
 {
     return _functional;
 }
+
+void        Arms::informations(void)
+{
+    std::cout   << "[Parts] Arms " << _serial << " status : "
+                << (isFunctional() ? "OK" : "KO") << std::endl; 
+}
