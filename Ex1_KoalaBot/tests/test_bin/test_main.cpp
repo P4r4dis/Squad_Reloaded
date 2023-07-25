@@ -5,7 +5,7 @@
 #include <criterion/parameterized.h>
 #include <signal.h>
 
-#include "../test_include/test_Parts.hpp"
+#include "../test_include/test_KoalaBot.hpp"
 
 void    redirect_all_stdout(void)
 {
@@ -66,4 +66,16 @@ Test(Parts, test_Parts_Head_constructor, .init = redirect_all_stdout)
 
     head.informations();
 	cr_assert_stdout_eq_str("[Parts] Head H-01 status : OK\n");
+}
+
+Test(KoalaBot, test_KoalaBot_constructor)//, .init = redirect_all_stdout)
+{
+    KoalaBot    kb;
+
+    cr_assert(kb.getSerial() == "Bob-01");
+    cr_assert_null(&kb.getArms());
+    cr_assert_null(&kb.getLegs());
+    cr_assert_null(&kb.getHead());
+
+	// cr_assert_stdout_eq_str("[Parts] Head H-01 status : OK\n");
 }
