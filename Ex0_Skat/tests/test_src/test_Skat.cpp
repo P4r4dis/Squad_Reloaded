@@ -30,3 +30,11 @@ void                Skat::shareStimPaks(int number, int stock)
     else
         std::cout << "Don't be greedy" << std::endl;
 }
+
+void                Skat::addStimPaks(unsigned int number)
+{
+    if (number <= 0)
+        std::cout << "Hey boya, did you forget something?" << std::endl;
+    else
+        _stimPaks += number;
+}

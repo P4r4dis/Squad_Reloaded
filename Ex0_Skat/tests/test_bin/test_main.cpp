@@ -38,3 +38,14 @@ Test(Skat, test_Skat_shareStimPaks, .init = redirect_all_stdout)
         "Don't be greedy\n"
         "Keep the change.\n");
 }
+
+Test(Skat, test_Skat_addStimPaks, .init = redirect_all_stdout)
+{
+    Skat    skat;
+
+    skat.addStimPaks(0);
+    skat.addStimPaks(5);
+    cr_assert(skat.stimPaks() == 20);
+	cr_assert_stdout_eq_str(
+        "Hey boya, did you forget something?\n");
+}
