@@ -7,12 +7,12 @@ Arms::Arms(std::string const &serial, bool functional) :    _serial(serial),
 Arms::~Arms(void)
 {}
 
-bool        Arms::getFunctional(void)
-{
-    return _functional;
-}
-
 std::string &Arms::serial(void)
 {
     return _serial;
+}
+
+bool        Arms::isFunctional(void)
+{
+    return _functional;
 }

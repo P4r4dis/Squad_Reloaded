@@ -9,8 +9,8 @@ class                       Arms
         Arms(std::string const &serial = "A-01", bool functional = true);
         ~Arms(void);
 
-        bool                getFunctional(void);
         std::string         &serial(void);
+        bool                isFunctional(void);
     private:
         std::string         _serial;
         bool                _functional;

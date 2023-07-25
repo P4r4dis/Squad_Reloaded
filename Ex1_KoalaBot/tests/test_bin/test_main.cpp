@@ -18,11 +18,11 @@ Test(Parts, test_Parts_Arms_constructor)//, .init = redirect_all_stdout)
     Arms arms;
 
     cr_assert(arms.serial() == "A-01");
-    cr_assert(arms.getFunctional() == true);
+    cr_assert(arms.isFunctional() == true);
 
     Arms arms2("Arms-01", false);
 
     cr_assert(arms2.serial() == "Arms-01");
-    cr_assert(arms2.getFunctional() == false);
+    cr_assert(arms2.isFunctional() == false);
 	// cr_assert_stdout_eq_str("");
 }
