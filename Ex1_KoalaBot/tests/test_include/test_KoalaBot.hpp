@@ -15,10 +15,14 @@ class                               KoalaBot
         const Legs                  &getLegs(void) const;
         const Head                  &getHead(void) const;
         const std::string           &getSerial(void) const;
+
+        void                        setPart(const Arms &arms,
+                                            const Legs &legs,
+                                            const Head &head);
     private:
         const std::string           _serial;
-        const std::unique_ptr<Arms> _arms;
-        const std::unique_ptr<Legs> _legs;
-        const std::unique_ptr<Head> _head;
+        std::unique_ptr<Arms> _arms;
+        std::unique_ptr<Legs> _legs;
+        std::unique_ptr<Head> _head;
 };
 #endif //                       !__KOALABOT_HPP__

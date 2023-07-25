@@ -29,3 +29,12 @@ const std::string   &KoalaBot::getSerial(void) const
 {
     return _serial;
 }
+
+void                KoalaBot::setPart(const Arms &arms,
+                                        const Legs &legs,
+                                        const Head &head)
+{
+    _arms = std::make_unique<Arms>(arms);
+    _legs = std::make_unique<Legs>(legs);
+    _head = std::make_unique<Head>(head);
+}
