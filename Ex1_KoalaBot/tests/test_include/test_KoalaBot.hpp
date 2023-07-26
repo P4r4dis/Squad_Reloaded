@@ -26,6 +26,7 @@ class                               KoalaBot
         void                        swapParts(const Legs &legs);
         void                        swapParts(const Head &head);
         void                        informations(void);
+        bool                        status(void);
     private:
         std::string           _serial;
         std::unique_ptr<Arms> _arms;
