@@ -53,3 +53,12 @@ void                KoalaBot::swapParts(const Head &head)
 {
     _head = std::make_unique<Head>(head);
 }
+
+void                KoalaBot::informations(void)
+{
+    std::cout << "[KoalaBot] " << _serial << std::endl;
+    _arms.get()->informations();
+    _legs.get()->informations();
+    _head.get()->informations();
+
+}

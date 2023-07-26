@@ -33,7 +33,7 @@ Test(Parts, test_Parts_Arms_informations, .init = redirect_all_stdout)
 
     arms.informations();
 	cr_assert_stdout_eq_str(
-        "[Parts] Arms A-01 status : OK\n");
+        "     [Parts] Arms A-01 status : OK\n");
 }
 
 Test(Parts, test_Parts_Legs_constructor, .init = redirect_all_stdout)
@@ -49,7 +49,7 @@ Test(Parts, test_Parts_Legs_constructor, .init = redirect_all_stdout)
     cr_assert(legs2.isFunctional() == false);
 
     legs.informations();
-	cr_assert_stdout_eq_str("[Parts] Legs L-01 status : OK\n");
+	cr_assert_stdout_eq_str("     [Parts] Legs L-01 status : OK\n");
 }
 
 Test(Parts, test_Parts_Head_constructor, .init = redirect_all_stdout)
@@ -65,7 +65,7 @@ Test(Parts, test_Parts_Head_constructor, .init = redirect_all_stdout)
     cr_assert(head2.isFunctional() == false);
 
     head.informations();
-	cr_assert_stdout_eq_str("[Parts] Head H-01 status : OK\n");
+	cr_assert_stdout_eq_str("     [Parts] Head H-01 status : OK\n");
 }
 
 Test(KoalaBot, test_KoalaBot_constructor)//, .init = redirect_all_stdout)
@@ -139,4 +139,21 @@ Test(KoalaBot, test_KoalaBot_swapParts)//, .init = redirect_all_stdout)
     cr_assert(kb.getLegs().isFunctional() == false); 
     cr_assert(kb.getHead().isFunctional() == false); 
 	// cr_assert_stdout_eq_str("[Parts] Head H-01 status : OK\n");
+}
+
+Test(KoalaBot, test_KoalaBot_informations, .init = redirect_all_stdout)
+{
+    KoalaBot    kb;
+    Arms        arms;
+    Legs        legs;
+    Head        head;
+
+    kb.setPart(arms, legs, head);
+
+    kb.informations();
+	cr_assert_stdout_eq_str(
+        "[KoalaBot] Bob-01\n"
+        "     [Parts] Arms A-01 status : OK\n"
+        "     [Parts] Legs L-01 status : OK\n"
+        "     [Parts] Head H-01 status : OK\n");
 }

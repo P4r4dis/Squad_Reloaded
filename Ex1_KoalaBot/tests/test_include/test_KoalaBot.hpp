@@ -2,7 +2,10 @@
     #define                         __KOALABOT_HPP__
 
 #include <iostream>
+#include <iomanip>
 #include <memory>
+#include <sstream>
+
 #include "test_Parts.hpp"
 
 class                               KoalaBot
@@ -22,6 +25,7 @@ class                               KoalaBot
         void                        swapParts(const Arms &arms);
         void                        swapParts(const Legs &legs);
         void                        swapParts(const Head &head);
+        void                        informations(void);
     private:
         std::string           _serial;
         std::unique_ptr<Arms> _arms;

@@ -1,4 +1,5 @@
 #include "../test_include/test_Parts.hpp"
+#include <iomanip>
 
 Arms::Arms(std::string const &serial, bool functional) :    _serial(serial),
                                                             _functional(functional)
@@ -19,7 +20,8 @@ bool        Arms::isFunctional(void)
 
 void        Arms::informations(void)
 {
-    std::cout   << "[Parts] Arms " << _serial << " status : "
+    std::cout   << std::setw(18) << "[Parts] Arms " << _serial 
+                << " status : "
                 << (isFunctional() ? "OK" : "KO") << std::endl; 
 }
 
@@ -42,7 +44,8 @@ bool        Legs::isFunctional(void)
 
 void        Legs::informations(void)
 {
-    std::cout   << "[Parts] Legs " << _serial << " status : "
+    std::cout   << std::setw(18) << "[Parts] Legs " << _serial 
+                << " status : "
                 << (isFunctional() ? "OK" : "KO") << std::endl; 
 }
 
@@ -65,6 +68,7 @@ bool        Head::isFunctional(void)
 
 void        Head::informations(void)
 {
-    std::cout   << "[Parts] Head " << _serial << " status : "
+    std::cout   << std::setw(18) << "[Parts] Head " << _serial 
+                << " status : "
                 << (isFunctional() ? "OK" : "KO") << std::endl; 
 }
