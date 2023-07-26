@@ -15,6 +15,7 @@ CPPFLAGS	+= -Wall -Wextra -Werror -W -std=c++23 -Wfatal-errors $(INCFLAGS)
 
 
 SRCS		=	$(SRC_PATH)/KoalaBot.cpp \
+				$(SRC_PATH)/Parts.cpp \
 				$(BIN_PATH)/main.cpp
 
 SRC_TEST	=	$(TST_PATH)/$(NAME)_test.cpp

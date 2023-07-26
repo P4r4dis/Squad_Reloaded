@@ -1,4 +1,4 @@
-#include "../test_include/test_KoalaBot.hpp"
+#include "../include/KoalaBot.hpp"
 
 KoalaBot::KoalaBot(const std::string &serial) : _serial(serial),
                                                 _arms(std::make_unique<Arms>()),

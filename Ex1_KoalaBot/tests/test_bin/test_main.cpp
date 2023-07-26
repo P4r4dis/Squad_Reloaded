@@ -73,9 +73,9 @@ Test(KoalaBot, test_KoalaBot_constructor)//, .init = redirect_all_stdout)
     KoalaBot    kb;
 
     cr_assert(kb.getSerial() == "Bob-01");
-    cr_assert_null(&kb.getArms());
-    cr_assert_null(&kb.getLegs());
-    cr_assert_null(&kb.getHead());
+    cr_assert_not_null(&kb.getArms());
+    cr_assert_not_null(&kb.getLegs());
+    cr_assert_not_null(&kb.getHead());
 
 	// cr_assert_stdout_eq_str("[Parts] Head H-01 status : OK\n");
 }
@@ -88,9 +88,6 @@ Test(KoalaBot, test_KoalaBot_setParts)//, .init = redirect_all_stdout)
     Head        head;
 
     cr_assert(kb.getSerial() == "Bob-01");
-    cr_assert_null(&kb.getArms());
-    cr_assert_null(&kb.getLegs());
-    cr_assert_null(&kb.getHead());
 
     kb.setPart(arms, legs, head);
     cr_assert_not_null(&kb.getArms());
@@ -112,9 +109,9 @@ Test(KoalaBot, test_KoalaBot_swapParts)//, .init = redirect_all_stdout)
     Head        head2("H", false);
 
     cr_assert(kb.getSerial() == "Bob-01");
-    cr_assert_null(&kb.getArms());
-    cr_assert_null(&kb.getLegs());
-    cr_assert_null(&kb.getHead());
+    // cr_assert_null(&kb.getArms());
+    // cr_assert_null(&kb.getLegs());
+    // cr_assert_null(&kb.getHead());
 
     kb.setPart(arms, legs, head);
     cr_assert_not_null(&kb.getArms());
@@ -152,6 +149,31 @@ Test(KoalaBot, test_KoalaBot_informations, .init = redirect_all_stdout)
 
     kb.informations();
 	cr_assert_stdout_eq_str(
+        "[KoalaBot] Bob-01\n"
+        "     [Parts] Arms A-01 status : OK\n"
+        "     [Parts] Legs L-01 status : OK\n"
+        "     [Parts] Head H-01 status : OK\n");
+}
+
+Test(KoalaBot, test_KoalaBot_status)//, .init = redirect_all_stdout)
+{
+    KoalaBot    kb;
+    Arms        arms;
+    Legs        legs;
+    Head        head;
+
+    kb.setPart(arms, legs, head);
+    cr_assert(kb.status() == true);
+}
+
+Test(KoalaBot, test_KoalaBot_mainFunction, .init = redirect_all_stdout)
+{
+    KoalaBot    kb;
+
+    std::cout << std::boolalpha << kb.status() << std::endl;
+    kb.informations();
+	cr_assert_stdout_eq_str(
+        "true\n"
         "[KoalaBot] Bob-01\n"
         "     [Parts] Arms A-01 status : OK\n"
         "     [Parts] Legs L-01 status : OK\n"
