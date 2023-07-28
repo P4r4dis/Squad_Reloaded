@@ -28,22 +28,27 @@ void        KreogCom::addCom(int x, int y, int serial)
     KreogCom *newKreogCom = new KreogCom(x, y, serial);
 
     // 2:   Check if the current KreogCom is already linked to another KreogCom 
-    //      (m_next is not nullptr).
-    if (_next) //  If already linked, traverse the linked list to find the last KreogCom
-    {
-        //  3:  create a current pointer to assign to _next
-        KreogCom *current = _next;
-        while (current->_next != nullptr)
-        {
-            current = current->_next;
-        }
-        // 4:   assign the last to newKreogCom
-        current->_next = newKreogCom;
-
-    }
-    else
+    //      (_next is not nullptr).
+    if (!_next)
     {
         //  If not linked, link to the newKreog;
         _next = newKreogCom;
     }
+    else //  If already linked, traverse the linked list to find the last KreogCom
+    {
+        //  3:  create a current pointer to assign to _next
+        KreogCom *current = _next;
+        while (current->_next != nullptr)
+            current = current->_next;
+        // 4:   assign the last to newKreogCom
+        current->_next = newKreogCom;
+    }
+}
+
+void        KreogCom::locateSquad(void)
+{
+    if(_next)
+        _next->locateSquad();
+    ping();
+
 }
