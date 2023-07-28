@@ -23,3 +23,25 @@ Test(KreogCom, test_KreogCom_constructor, .init = redirect_all_stdout)
         "KreogCom 101010 initialized\n"
         "KreogCom 101010 currently at 42 42\n");
 }
+
+
+Test(KreogCom, test_KreogCom_getCom, .init = redirect_all_stdout)
+{
+    KreogCom    k(42, 42, 101010);
+
+    cr_assert_null(k.getCom());
+	cr_assert_stdout_eq_str(
+        "KreogCom 101010 initialized\n");
+}
+
+Test(KreogCom, test_KreogCom_addCom, .init = redirect_all_stdout)
+{
+    KreogCom    k(42, 42, 101010);
+
+    k.addCom(56, 25, 65);
+    k.addCom(73, 34, 51);
+	cr_assert_stdout_eq_str(
+        "KreogCom 101010 initialized\n"
+        "KreogCom 65 initialized\n"
+        "KreogCom 51 initialized\n");
+}

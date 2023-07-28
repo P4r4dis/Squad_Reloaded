@@ -3,7 +3,7 @@
 
 
 #include <iostream>
-
+#include <list>
 class                   KreogCom
 {
     public:
@@ -19,6 +19,8 @@ class                   KreogCom
         int             _x;
         int             _y;
         const int       m_serial;
+        KreogCom        *_next;
+
 };
 
 #endif //              !__KREOGCOM_HPP__
