@@ -1,9 +1,9 @@
 #ifndef                 __KREOGCOM_HPP__
     #define             __KREOGCOM_HPP__
-
-
 #include <iostream>
 #include <list>
+
+
 class                   KreogCom
 {
     public:
@@ -20,6 +20,7 @@ class                   KreogCom
         int             _y;
         const int       m_serial;
         KreogCom        *_next;
+        std::list<KreogCom *>       _list;
 
 };
 
