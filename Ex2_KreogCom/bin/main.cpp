@@ -1,3 +1,5 @@
+#include "../include/KreogCom.hpp"
+
 int	main()
 {
 	KreogCom    k(42, 42, 101010);
