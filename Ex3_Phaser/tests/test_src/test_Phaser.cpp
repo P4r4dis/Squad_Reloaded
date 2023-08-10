@@ -77,3 +77,17 @@ Phaser::AmmoType    Phaser::getAmmoType(void) const
 {
     return _type;
 }
+
+void                Phaser::reload(void)
+{
+    ejectClip();
+    _currentAmmo = _maxAmmo;
+    for (int i = 0; i < _maxAmmo; i++)
+        _magazine.push_back(_type);
+    std::cout << "Reloading..." << std::endl; 
+}
+
+size_t              Phaser::getMagazine(void) const
+{
+    return _magazine.size();
+}

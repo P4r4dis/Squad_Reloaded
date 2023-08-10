@@ -19,7 +19,7 @@ Test(Phaser, test_Phaser_ctor)//, .init = redirect_all_stdout)
     Phaser  p(5, Phaser::ROCKET);
     
     cr_assert(p.getCurrentAmmos() == 5);
-    
+    cr_assert(p.getMagazine() == 5);
 	// cr_assert_stdout_eq_str(
         // "KreogCom 101010 initialized\n"
         // "KreogCom 101010 shutting down\n"
@@ -31,11 +31,15 @@ Test(Phaser, test_Phaser_fire, .init = redirect_all_stdout)
     Phaser  p(5, Phaser::ROCKET);
     
     cr_assert(p.getCurrentAmmos() == 5);
+    cr_assert(p.getMagazine() == 5);
+
     while(p.getCurrentAmmos() > 0)
         p.fire();
     
     cr_assert(p.getCurrentAmmos() == 0);
     p.fire();
+    cr_assert(p.getMagazine() == 0);
+
 	cr_assert_stdout_eq_str(
         "Boouuuuuum\n"
         "Boouuuuuum\n"
@@ -52,6 +56,8 @@ Test(Phaser, test_Phaser_ejectClip, .init = redirect_all_stdout)
     
     p.ejectClip();
     cr_assert(p.getCurrentAmmos() == 0);
+    cr_assert(p.getMagazine() == 0);
+
     p.fire();
     
 	cr_assert_stdout_eq_str(
@@ -75,5 +81,26 @@ Test(Phaser, test_Phaser_changeType, .init = redirect_all_stdout)
         "Switching ammo to type: regular\n"
         "Switching ammo to type: rocket\n"
 
+    );
+}
+
+Test(Phaser, test_Phaser_reload, .init = redirect_all_stdout)
+{
+    Phaser  p(5, Phaser::ROCKET);
+
+    cr_assert(p.getCurrentAmmos() == 5);
+    cr_assert(p.getMagazine() == 5);
+
+    p.fire();
+    cr_assert(p.getCurrentAmmos() == 4);
+    cr_assert(p.getMagazine() == 4);
+
+    p.reload();
+    cr_assert(p.getCurrentAmmos() == 5);
+    cr_assert(p.getMagazine() == 5);
+
+	cr_assert_stdout_eq_str(
+        "Boouuuuuum\n"
+        "Reloading...\n"
     );
 }

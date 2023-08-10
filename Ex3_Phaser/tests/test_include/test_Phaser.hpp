@@ -25,6 +25,7 @@ class                           Phaser
 
         int                     getCurrentAmmos(void) const;
         AmmoType                getAmmoType(void) const;
+        size_t                  getMagazine(void) const;
 
     private:
         static const int        Empty; // 0
