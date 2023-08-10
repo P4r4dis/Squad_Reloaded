@@ -53,3 +53,27 @@ void        Phaser::ejectClip(void)
     _magazine.clear();
     _currentAmmo = Empty;
 }
+
+void        Phaser::changeType(AmmoType newType)
+{
+    _type = newType;
+    switch (_type)
+    {
+        case 0:
+            std::cout << "Switching ammo to type: regular" << std::endl;
+            break;
+        case 1:
+            std::cout << "Switching ammo to type: plasma" << std::endl;
+            break;
+        case 2:
+            std::cout << "Switching ammo to type: rocket" << std::endl;
+            break;
+        default:
+            break;
+    }
+}
+
+Phaser::AmmoType    Phaser::getAmmoType(void) const
+{
+    return _type;
+}

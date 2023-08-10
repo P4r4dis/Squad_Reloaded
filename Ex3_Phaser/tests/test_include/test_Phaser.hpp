@@ -24,6 +24,7 @@ class                           Phaser
         void                    addAmmo(AmmoType type);
 
         int                     getCurrentAmmos(void) const;
+        AmmoType                getAmmoType(void) const;
 
     private:
         static const int        Empty; // 0
