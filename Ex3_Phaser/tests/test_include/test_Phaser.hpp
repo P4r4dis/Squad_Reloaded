@@ -1,12 +1,13 @@
-#ifndef                     __PHASER_HPP__
-    #define                 __PHASER_HPP__
+#ifndef                         __PHASER_HPP__
+    #define                     __PHASER_HPP__
 
 #include "Sounds.hpp"
 #include <iostream>
-class                       Phaser
+#include <vector>
+class                           Phaser
 {
     public:
-        enum                AmmoType
+        enum                    AmmoType
         {
             REGULAR = 0,
             PLASMA,
@@ -16,21 +17,22 @@ class                       Phaser
         Phaser(int maxAmmo = 20, AmmoType type = REGULAR);
         ~Phaser(void);
 
-        void                fire(void);
-        void                ejectClip(void);
-        void                changeType(AmmoType newType);
-        void                reload(void);
-        void                addAmmo(AmmoType type);
+        void                    fire(void);
+        void                    ejectClip(void);
+        void                    changeType(AmmoType newType);
+        void                    reload(void);
+        void                    addAmmo(AmmoType type);
 
-        int                 getCurrentAmmos(void) const;
+        int                     getCurrentAmmos(void) const;
 
     private:
-        static const int    Empty; // 0
-        int                 _maxAmmo; // maxammo
-        int                 _currentAmmo;
-        AmmoType            _type;
+        static const int        Empty; // 0
+        int                     _maxAmmo; // maxammo
+        int                     _currentAmmo;
+        AmmoType                _type;
+        std::vector<AmmoType>   _magazine;
 
 
 };
 
-#endif  //                  !__PHASER_HPP__
+#endif  //                      !__PHASER_HPP__
