@@ -1,4 +1,4 @@
-#include "../test_include/test_Phaser.hpp"
+#include "../include/Phaser.hpp"
 
 const int   Phaser::Empty = 0;
 const std::string   Sounds::Regular = "Bang";

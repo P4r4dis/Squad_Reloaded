@@ -20,10 +20,6 @@ Test(Phaser, test_Phaser_ctor)//, .init = redirect_all_stdout)
     
     cr_assert(p.getCurrentAmmos() == 5);
     cr_assert(p.getMagazine() == 5);
-	// cr_assert_stdout_eq_str(
-        // "KreogCom 101010 initialized\n"
-        // "KreogCom 101010 shutting down\n"
-    // );
 }
 
 Test(Phaser, test_Phaser_fire, .init = redirect_all_stdout)
@@ -33,7 +29,7 @@ Test(Phaser, test_Phaser_fire, .init = redirect_all_stdout)
     cr_assert(p.getCurrentAmmos() == 5);
     cr_assert(p.getMagazine() == 5);
 
-    while(p.getCurrentAmmos() > 0)
+    while (p.getCurrentAmmos() > 0)
         p.fire();
     
     cr_assert(p.getCurrentAmmos() == 0);
@@ -41,11 +37,11 @@ Test(Phaser, test_Phaser_fire, .init = redirect_all_stdout)
     cr_assert(p.getMagazine() == 0);
 
 	cr_assert_stdout_eq_str(
-        "Boouuuuuum\n"
-        "Boouuuuuum\n"
-        "Boouuuuuum\n"
-        "Boouuuuuum\n"
-        "Boouuuuuum\n"
+        "Booooooom\n"
+        "Booooooom\n"
+        "Booooooom\n"
+        "Booooooom\n"
+        "Booooooom\n"
         "Clip empty, please reload\n"
     );
 }
@@ -100,7 +96,7 @@ Test(Phaser, test_Phaser_reload, .init = redirect_all_stdout)
     cr_assert(p.getMagazine() == 5);
 
 	cr_assert_stdout_eq_str(
-        "Boouuuuuum\n"
+        "Booooooom\n"
         "Reloading...\n"
     );
 }
@@ -123,6 +119,27 @@ Test(Phaser, test_Phaser_addAmmo, .init = redirect_all_stdout)
 
 	cr_assert_stdout_eq_str(
         "Clip full\n"
-        "Boouuuuuum\n"
+        "Booooooom\n"
+    );
+}
+
+Test(Phaser, test_Phaser_mainFunction, .init = redirect_all_stdout)
+{
+    Phaser p(5, Phaser::ROCKET);
+
+    p.fire();
+    p.reload();
+    std::cout << "Firing all ammunitions" << std::endl;
+    while (p.getCurrentAmmos() > 0)
+        p.fire();
+    cr_assert_stdout_eq_str(
+        "Booooooom\n"
+        "Reloading...\n"
+        "Firing all ammunitions\n"
+        "Booooooom\n"
+        "Booooooom\n"
+        "Booooooom\n"
+        "Booooooom\n"
+        "Booooooom\n"
     );
 }
