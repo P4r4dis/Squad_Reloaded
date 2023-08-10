@@ -33,15 +33,15 @@ EX2_SRC_TEST			=	$(EX2_TST_PATH)/$(NAME_EX2)_test.cpp
 TEST_NAME_EX2 			= 	test_$(NAME_EX2)
 
 #################################################
-# EX3_PATH 				= 	./Ex3_War
-# EX3_SRC_PATH			=	./Ex3_War/src
-# EX3_TST_PATH			=	./Ex3_War/tests
-# EX3_INC_PATH			=	./Ex3_War/include
-# NAME_EX3				=	Ex3
-# # EX0_SRC					=	$(EX0_SRC_PATH)/.cpp
+EX3_PATH 				= 	./Ex3_Phaser
+EX3_SRC_PATH			=	./Ex3_Phaser/src
+EX3_TST_PATH			=	./Ex3_Phaser/tests
+EX3_INC_PATH			=	./Ex3_Phaser/include
+NAME_EX3				=	Ex3
+# EX0_SRC					=	$(EX0_SRC_PATH)/.cpp
 
-# EX3_SRC_TEST			=	$(EX3_TST_PATH)/$(NAME_EX3)_test.cpp
-# TEST_NAME_EX3 			= 	test_$(NAME_EX3)
+EX3_SRC_TEST			=	$(EX3_TST_PATH)/$(NAME_EX3)_test.cpp
+TEST_NAME_EX3 			= 	test_$(NAME_EX3)
 
 #################################################
 # EX4_PATH 				= 	./Ex4_Commander
@@ -65,7 +65,7 @@ clean					:
 							@$(MAKE) $(CLEAN) -C $(EX0_TST_PATH)
 							@$(MAKE) $(CLEAN) -C $(EX1_TST_PATH)
 							@$(MAKE) $(CLEAN) -C $(EX2_TST_PATH)
-# @$(MAKE) $(CLEAN) -C $(EX3_TST_PATH)
+							@$(MAKE) $(CLEAN) -C $(EX3_TST_PATH)
 # @$(MAKE) $(CLEAN) -C $(EX4_TST_PATH)
 
 fclean					:	clean
@@ -76,8 +76,8 @@ fclean					:	clean
 							@$(MAKE) $(FCLEAN) -C $(EX1_PATH)
 							@$(MAKE) $(FCLEAN) -C $(EX2_TST_PATH)
 							@$(MAKE) $(FCLEAN) -C $(EX2_PATH)
-# @$(MAKE) $(FCLEAN) -C $(EX3_TST_PATH)
-# @$(MAKE) $(FCLEAN) -C $(EX3_PATH)
+							@$(MAKE) $(FCLEAN) -C $(EX3_TST_PATH)
+							@$(MAKE) $(FCLEAN) -C $(EX3_PATH)
 # @$(MAKE) $(FCLEAN) -C $(EX4_TST_PATH)
 # @$(MAKE) $(FCLEAN) -C $(EX4_PATH)
 
@@ -107,13 +107,13 @@ tests_run_Ex2			:	fclean
 							@$(MAKE) -C $(EX2_TST_PATH)
 							$(EX2_TST_PATH)/$(TEST_NAME_EX2)
 
-# Ex3 					: 	fclean
-# 							@$(MAKE) -C $(EX3_PATH)
-# 							$(EX3_PATH)/$(NAME_EX3)
+Ex3 					: 	fclean
+							@$(MAKE) -C $(EX3_PATH)
+							$(EX3_PATH)/$(NAME_EX3)
 
-# tests_run_Ex3			:	fclean
-# 							@$(MAKE) -C $(EX3_TST_PATH)
-# 							$(EX3_TST_PATH)/$(TEST_NAME_EX3)
+tests_run_Ex3			:	fclean
+							@$(MAKE) -C $(EX3_TST_PATH)
+							$(EX3_TST_PATH)/$(TEST_NAME_EX3)
 
 # Ex4 					: 	fclean
 # 							@$(MAKE) -C $(EX4_PATH)
@@ -131,9 +131,9 @@ tests_run				:	fclean
 							@echo "Press Enter to continue to the next test (Ex2)..."
 							@read dummy
 							@$(MAKE) tests_run_Ex2
-# @echo "Press Enter to continue to the next test (Ex3)..."
-# @read dummy
-# @$(MAKE) tests_run_Ex3
+							@echo "Press Enter to continue to the next test (Ex3)..."
+							@read dummy
+							@$(MAKE) tests_run_Ex3
 # @echo "Press Enter to continue to the next test (Ex4)..."
 # @read dummy
 # @$(MAKE) tests_run_Ex4
@@ -142,6 +142,7 @@ tests_run				:	fclean
 							tests_run \
 							Ex0 tests_run_Ex0 \
 							Ex1 tests_run_Ex1 \
-							Ex2 tests_run_Ex2 
+							Ex2 tests_run_Ex2 \
+							Ex3 tests_run_Ex3
 # Ex3 tests_run_Ex3
 # Ex4 tests_run_Ex4
