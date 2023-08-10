@@ -104,3 +104,25 @@ Test(Phaser, test_Phaser_reload, .init = redirect_all_stdout)
         "Reloading...\n"
     );
 }
+
+Test(Phaser, test_Phaser_addAmmo, .init = redirect_all_stdout)
+{
+    Phaser  p(5, Phaser::ROCKET);
+
+    cr_assert(p.getCurrentAmmos() == 5);
+    cr_assert(p.getMagazine() == 5);
+
+    p.addAmmo(Phaser::ROCKET);
+    p.fire();
+    cr_assert(p.getCurrentAmmos() == 4);
+    cr_assert(p.getMagazine() == 4);
+
+    p.addAmmo(Phaser::ROCKET);
+    cr_assert(p.getCurrentAmmos() == 5);
+    cr_assert(p.getMagazine() == 5);
+
+	cr_assert_stdout_eq_str(
+        "Clip full\n"
+        "Boouuuuuum\n"
+    );
+}

@@ -91,3 +91,14 @@ size_t              Phaser::getMagazine(void) const
 {
     return _magazine.size();
 }
+
+void                Phaser::addAmmo(AmmoType type)
+{
+    if (_currentAmmo == _maxAmmo)
+        std::cout << "Clip full" << std::endl;
+    else
+    {
+        _magazine.push_back(type);
+        _currentAmmo++;
+    }
+}
