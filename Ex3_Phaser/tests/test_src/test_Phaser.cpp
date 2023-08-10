@@ -47,3 +47,9 @@ void        Phaser::fire(void)
         }
     }
 }
+
+void        Phaser::ejectClip(void)
+{
+    _magazine.clear();
+    _currentAmmo = Empty;
+}

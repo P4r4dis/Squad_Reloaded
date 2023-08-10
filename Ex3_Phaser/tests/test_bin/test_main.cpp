@@ -45,3 +45,17 @@ Test(Phaser, test_Phaser_fire, .init = redirect_all_stdout)
         "Clip empty, please reload\n"
     );
 }
+
+Test(Phaser, test_Phaser_ejectClip, .init = redirect_all_stdout)
+{
+    Phaser  p(5, Phaser::ROCKET);
+    
+    p.ejectClip();
+    cr_assert(p.getCurrentAmmos() == 0);
+    p.fire();
+    
+	cr_assert_stdout_eq_str(
+        "Clip empty, please reload\n"
+    );
+}
+
