@@ -44,15 +44,15 @@ EX3_SRC_TEST			=	$(EX3_TST_PATH)/$(NAME_EX3)_test.cpp
 TEST_NAME_EX3 			= 	test_$(NAME_EX3)
 
 #################################################
-# EX4_PATH 				= 	./Ex4_Commander
-# EX4_SRC_PATH			=	./Ex4_Commander/src
-# EX4_TST_PATH			=	./Ex4_Commander/tests
-# EX4_INC_PATH			=	./Ex4_Commander/include
-# NAME_EX4				=	Ex4
-# # EX0_SRC					=	$(EX0_SRC_PATH)/.cpp
+EX4_PATH 				= 	./Ex4_GSquad
+EX4_SRC_PATH			=	./Ex4_GSquad/src
+EX4_TST_PATH			=	./Ex4_GSquad/tests
+EX4_INC_PATH			=	./Ex4_GSquad/include
+NAME_EX4				=	Ex4
+# EX0_SRC					=	$(EX0_SRC_PATH)/.cpp
 
-# EX4_SRC_TEST			=	$(EX4_TST_PATH)/$(NAME_EX4)_test.cpp
-# TEST_NAME_EX4 			= 	test_$(NAME_EX4)
+EX4_SRC_TEST			=	$(EX4_TST_PATH)/$(NAME_EX4)_test.cpp
+TEST_NAME_EX4 			= 	test_$(NAME_EX4)
 
 #################################################
 OBJS					=	$(SRCS:.cpp=.o)
@@ -66,7 +66,7 @@ clean					:
 							@$(MAKE) $(CLEAN) -C $(EX1_TST_PATH)
 							@$(MAKE) $(CLEAN) -C $(EX2_TST_PATH)
 							@$(MAKE) $(CLEAN) -C $(EX3_TST_PATH)
-# @$(MAKE) $(CLEAN) -C $(EX4_TST_PATH)
+							@$(MAKE) $(CLEAN) -C $(EX4_TST_PATH)
 
 fclean					:	clean
 							$(RM) $(NAME) $(TEST_NAME)
@@ -78,8 +78,8 @@ fclean					:	clean
 							@$(MAKE) $(FCLEAN) -C $(EX2_PATH)
 							@$(MAKE) $(FCLEAN) -C $(EX3_TST_PATH)
 							@$(MAKE) $(FCLEAN) -C $(EX3_PATH)
-# @$(MAKE) $(FCLEAN) -C $(EX4_TST_PATH)
-# @$(MAKE) $(FCLEAN) -C $(EX4_PATH)
+							@$(MAKE) $(FCLEAN) -C $(EX4_TST_PATH)
+							@$(MAKE) $(FCLEAN) -C $(EX4_PATH)
 
 re						: 	fclean all
 
@@ -115,13 +115,13 @@ tests_run_Ex3			:	fclean
 							@$(MAKE) -C $(EX3_TST_PATH)
 							$(EX3_TST_PATH)/$(TEST_NAME_EX3)
 
-# Ex4 					: 	fclean
-# 							@$(MAKE) -C $(EX4_PATH)
-# 							$(EX4_PATH)/$(NAME_EX4)
+Ex4 					: 	fclean
+							@$(MAKE) -C $(EX4_PATH)
+							$(EX4_PATH)/$(NAME_EX4)
 
-# tests_run_Ex4			:	fclean
-# 							@$(MAKE) -C $(EX4_TST_PATH)
-# 							$(EX4_TST_PATH)/$(TEST_NAME_EX4)
+tests_run_Ex4			:	fclean
+							@$(MAKE) -C $(EX4_TST_PATH)
+							$(EX4_TST_PATH)/$(TEST_NAME_EX4)
 
 tests_run				:	fclean
 							@$(MAKE) tests_run_Ex0
@@ -134,9 +134,9 @@ tests_run				:	fclean
 							@echo "Press Enter to continue to the next test (Ex3)..."
 							@read dummy
 							@$(MAKE) tests_run_Ex3
-# @echo "Press Enter to continue to the next test (Ex4)..."
-# @read dummy
-# @$(MAKE) tests_run_Ex4
+							@echo "Press Enter to continue to the next test (Ex4)..."
+							@read dummy
+							@$(MAKE) tests_run_Ex4
 
 .PHONY					: 	all clean fclean re \
 							tests_run \
