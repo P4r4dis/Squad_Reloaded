@@ -58,6 +58,13 @@ Test(Skat, test_Skat_reload, .init = redirect_all_stdout)
     cr_assert(s.getPhaser()->getCurrentAmmos() == 20);
 }
 
+Test(Skat, test_Skat_com, .init = redirect_all_stdout)
+{
+    Skat s("test", 20, 12345, 1, 2, Phaser::REGULAR);
+
+    cr_assert(s.com().getCom() == nullptr);
+}
+
 // Test(Phaser, test_Phaser_ctor)//, .init = redirect_all_stdout)
 // {
 //     Phaser  p(5, Phaser::ROCKET);
