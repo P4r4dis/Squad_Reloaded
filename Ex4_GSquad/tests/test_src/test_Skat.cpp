@@ -66,3 +66,8 @@ void                Skat::locate(void)
 {
     _kreogCom->ping();
 }
+
+void                Skat::reload(void)
+{
+    _phaser->reload();
+}
