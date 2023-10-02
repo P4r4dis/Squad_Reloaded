@@ -6,7 +6,7 @@
 // #include <signal.h>
 
 
-#include "../test_include/test_Phaser.hpp"
+#include "../test_include/test_Skat.hpp"
 
 void    redirect_all_stdout(void)
 {
@@ -14,12 +14,18 @@ void    redirect_all_stdout(void)
     cr_redirect_stderr();
 }
 
-Test(Phaser, test_Phaser_ctor)//, .init = redirect_all_stdout)
+Test(Skat, test_Skat_ctor)//, .init = redirect_all_stdout)
 {
-    Phaser  p(5, Phaser::ROCKET);
-    
-    cr_assert(p.getCurrentAmmos() == 5);
-    cr_assert(p.getMagazine() == 5);
+    Skat s("test", 20, 12345, 1, 2, Phaser::REGULAR);
+
+    cr_assert(s.getName() == "test");
+    cr_assert(s.getStimPaks() == 20);
+    cr_assert(s.getSerial() == 12345);
+    cr_assert(s.getPosX() == 1);
+    cr_assert(s.getPosY() == 2);
+    cr_assert(s.getAmmoType() == Phaser::REGULAR);
+    cr_assert(s.getPhaser() != nullptr);
+    cr_assert(s.getKreogCom() != nullptr);
 }
 
 
