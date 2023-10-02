@@ -61,3 +61,8 @@ void                Skat::fire(void)
 {
     _phaser->fire();
 }
+
+void                Skat::locate(void)
+{
+    _kreogCom->ping();
+}

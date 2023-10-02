@@ -22,6 +22,7 @@ class                           Skat
         KreogCom                *getKreogCom(void);
 
         void                    fire(void);
+        void                    locate(void);
     private:
         const std::string       _name;
         int                     _stimPaks;

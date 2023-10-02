@@ -28,7 +28,7 @@ Test(Skat, test_Skat_ctor, .init = redirect_all_stdout)
     cr_assert(s.getKreogCom() != nullptr);
 }
 
-Test(Skat, test_Skat_fire)//, .init = redirect_all_stdout)
+Test(Skat, test_Skat_fire, .init = redirect_all_stdout)
 {
     Skat s("test", 20, 12345, 1, 2, Phaser::REGULAR);
 
@@ -38,6 +38,14 @@ Test(Skat, test_Skat_fire)//, .init = redirect_all_stdout)
 
 }
 
+Test(Skat, test_Skat_locate, .init = redirect_all_stdout)
+{
+    Skat s("test", 20, 12345, 1, 2, Phaser::REGULAR);
+
+    s.locate();
+    cr_assert(s.getPosX() == 1);
+    cr_assert(s.getPosY() == 2);
+}
 
 // Test(Phaser, test_Phaser_ctor)//, .init = redirect_all_stdout)
 // {
