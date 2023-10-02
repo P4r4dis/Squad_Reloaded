@@ -21,6 +21,7 @@ class                           Skat
         Phaser                  *getPhaser(void);
         KreogCom                *getKreogCom(void);
 
+        void                    fire(void);
     private:
         const std::string       _name;
         int                     _stimPaks;

@@ -56,3 +56,8 @@ KreogCom            *Skat::getKreogCom(void)
 {
     return _kreogCom;
 }
+
+void                Skat::fire(void)
+{
+    _phaser->fire();
+}

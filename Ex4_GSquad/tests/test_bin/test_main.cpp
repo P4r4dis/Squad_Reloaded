@@ -14,7 +14,7 @@ void    redirect_all_stdout(void)
     cr_redirect_stderr();
 }
 
-Test(Skat, test_Skat_ctor)//, .init = redirect_all_stdout)
+Test(Skat, test_Skat_ctor, .init = redirect_all_stdout)
 {
     Skat s("test", 20, 12345, 1, 2, Phaser::REGULAR);
 
@@ -26,6 +26,16 @@ Test(Skat, test_Skat_ctor)//, .init = redirect_all_stdout)
     cr_assert(s.getAmmoType() == Phaser::REGULAR);
     cr_assert(s.getPhaser() != nullptr);
     cr_assert(s.getKreogCom() != nullptr);
+}
+
+Test(Skat, test_Skat_fire)//, .init = redirect_all_stdout)
+{
+    Skat s("test", 20, 12345, 1, 2, Phaser::REGULAR);
+
+    cr_assert(s.getPhaser()->getCurrentAmmos() == 20);
+    s.fire();
+    cr_assert(s.getPhaser()->getCurrentAmmos() == 19);
+
 }
 
 
