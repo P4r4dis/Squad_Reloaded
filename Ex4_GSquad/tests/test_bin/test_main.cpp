@@ -87,7 +87,7 @@ Test(Skat, test_Skat_addCom, .init = redirect_all_stdout)
  
 }
 
-Test(Squad, Test_Squad)//, .init = redirect_all_stdout)
+Test(Squad, Test_Squad, .init = redirect_all_stdout)
 {
     Squad   squad;
 
@@ -97,6 +97,13 @@ Test(Squad, Test_Squad)//, .init = redirect_all_stdout)
     cr_assert(squad.getSize() == 5);
 }
 
+
+Test(Squad, Test_Squad_foreach)//, .init = redirect_all_stdout)
+{
+    Squad   squad;
+
+    squad.foreach(0, &Skat::fire);
+}
 // Test(Phaser, test_Phaser_ctor)//, .init = redirect_all_stdout)
 // {
 //     Phaser  p(5, Phaser::ROCKET);

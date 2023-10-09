@@ -28,7 +28,7 @@ class                           Squad
         int                     _posYBegin;
         Phaser::AmmoType        _ammoType;
         int                     _size;
-        Skat                    *_skat;
+        Skat                    **_skat;
 };
 
 #endif //           !__SQUAD_HPP__
