@@ -7,6 +7,7 @@
 
 
 #include "../test_include/test_Skat.hpp"
+#include "../test_include/test_Squad.hpp"
 
 void    redirect_all_stdout(void)
 {
@@ -84,6 +85,16 @@ Test(Skat, test_Skat_addCom, .init = redirect_all_stdout)
     // s.addCom(&kreog);
     // s.com().ping();
  
+}
+
+Test(Squad, Test_Squad)//, .init = redirect_all_stdout)
+{
+    Squad   squad;
+
+    cr_assert(squad.getPosXBegin() == 0);
+    cr_assert(squad.getPosYBegin() == 0);
+    cr_assert(squad.getAmmoType() == Phaser::REGULAR);
+    cr_assert(squad.getSize() == 5);
 }
 
 // Test(Phaser, test_Phaser_ctor)//, .init = redirect_all_stdout)

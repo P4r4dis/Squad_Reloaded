@@ -5,7 +5,8 @@ TEST_INC_PATH	=	./test_include
 TEST_BIN_PATH	=	./test_bin
 TEST_SRC		=	$(TEST_SRC_PATH)/test_Phaser.cpp \
 					$(TEST_SRC_PATH)/test_KreogCom.cpp \
-					$(TEST_SRC_PATH)/test_Skat.cpp
+					$(TEST_SRC_PATH)/test_Skat.cpp \
+					$(TEST_SRC_PATH)/test_Squad.cpp
 NAME			=	test_Ex4
 #############################################
 
