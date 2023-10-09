@@ -11,10 +11,15 @@ class                   KreogCom
         ~KreogCom(void);
 
         void            addCom(int x, int y, int serial);
+        void            addCom(KreogCom *com);
         void            removeCom(void);
         KreogCom        *getCom(void);
         void            ping(void);
         void            locateSquad(void);
+        int             getX(void);
+        int             getY(void);
+        int             getSerial(void);
+
     private:
         int             _x;
         int             _y;

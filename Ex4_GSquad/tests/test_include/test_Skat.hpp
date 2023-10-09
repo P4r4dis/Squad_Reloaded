@@ -20,6 +20,7 @@ class                           Skat
         Phaser::AmmoType        getAmmoType(void);
         Phaser                  *getPhaser(void);
         KreogCom                *getKreogCom(void);
+        void                    addCom(KreogCom *com);
 
         void                    fire(void);
         void                    locate(void);
@@ -33,7 +34,7 @@ class                           Skat
         int                     _y;
         Phaser::AmmoType        _type;
         Phaser                  *_phaser;
-        KreogCom                *_kreogCom;
+        KreogCom                *_Com;
 
 };
 

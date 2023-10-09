@@ -31,6 +31,38 @@ void        KreogCom::addCom(int x, int y, int serial)
     _next = newKreogCom;
 }
 
+void        KreogCom::addCom(KreogCom *com)
+{
+        if (_next == nullptr) {
+        _next = com;
+    } else {
+        KreogCom *current = _next;
+        while (current->_next != nullptr) {
+            current = current->_next;
+        }
+        current->_next = com;
+    }
+    // // Create a new KreogCom with the given x, y, and serial values
+    // KreogCom    *newKreogCom = com;
+    // _list.push_back(newKreogCom);
+    // std::cout << "TEST 1" << std::endl;
+    // // Get the current next KreogCom
+    // KreogCom    *oldKreogCom = getCom();
+    // std::cout << "TEST 2" << std::endl;
+
+    // // If there is already a next KreogCom
+    // if (oldKreogCom != nullptr) {
+    //     // Link the new KreogCom to the old one
+    //     newKreogCom->_next = oldKreogCom;
+    //         std::cout << "TEST 3" << std::endl;
+
+    // }
+    // // Link the new KreogCom to the current one
+    // _next = newKreogCom;
+    //     std::cout << "TEST 4" << std::endl;
+
+}
+
 // void        KreogCom::addComSmartPtr(int x, int y, int serial)
 // {
 //     // Create a new KreogCom with the given x, y, and serial values
@@ -93,4 +125,19 @@ void        KreogCom::locateSquad(void)
     // Print information about the current KreogCom
         this->ping();
 
+}
+
+int         KreogCom::getX(void)
+{
+    return _x;
+}
+
+int         KreogCom::getY(void)
+{
+    return _y;
+}
+
+int         KreogCom::getSerial(void)
+{
+    return m_serial;
 }

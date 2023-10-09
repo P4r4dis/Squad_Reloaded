@@ -18,6 +18,7 @@ Test(Skat, test_Skat_ctor, .init = redirect_all_stdout)
 {
     Skat s("test", 20, 12345, 1, 2, Phaser::REGULAR);
 
+    
     cr_assert(s.getName() == "test");
     cr_assert(s.getStimPaks() == 20);
     cr_assert(s.getSerial() == 12345);
@@ -35,7 +36,6 @@ Test(Skat, test_Skat_fire, .init = redirect_all_stdout)
     cr_assert(s.getPhaser()->getCurrentAmmos() == 20);
     s.fire();
     cr_assert(s.getPhaser()->getCurrentAmmos() == 19);
-
 }
 
 Test(Skat, test_Skat_locate, .init = redirect_all_stdout)
@@ -63,6 +63,27 @@ Test(Skat, test_Skat_com, .init = redirect_all_stdout)
     Skat s("test", 20, 12345, 1, 2, Phaser::REGULAR);
 
     cr_assert(s.com().getCom() == nullptr);
+}
+
+Test(Skat, test_Skat_addCom, .init = redirect_all_stdout)
+{
+    Skat s("test", 20, 12345, 1, 2, Phaser::REGULAR);
+
+    KreogCom kreog(2, 3, 1);
+
+
+
+    kreog.addCom(&s.com());
+    kreog.locateSquad();
+
+
+    // kreog.locateSquad();
+
+    //   KreogCom kreog2(2, 3, 2);
+
+    // s.addCom(&kreog);
+    // s.com().ping();
+ 
 }
 
 // Test(Phaser, test_Phaser_ctor)//, .init = redirect_all_stdout)

@@ -5,15 +5,15 @@ Skat::Skat(const std::string &name, int stimPaks,
                                                                 _stimPaks(stimPaks),
                                                                 _serial(serial),
                                                                 _x(x), _y(y), _type(type),
-                                                                _phaser(new Phaser(_stimPaks, type)),
-                                                                _kreogCom(new KreogCom(_x, _y, _serial))
-{}
+                                                                _phaser(new Phaser(20, Phaser::REGULAR)),
+                                                                _Com(new KreogCom(_x, _y, _serial))//_Com(nullptr)//_kreogCom(new KreogCom(_x, _y, _serial))
+{} 
 
 Skat::~Skat(void)
 {
-    if (_kreogCom != nullptr)
-        delete _kreogCom;
-    else if (_phaser != nullptr)
+    if (_Com)
+        delete _Com;
+    if (_phaser)
         delete _phaser;
 }
 
@@ -54,7 +54,7 @@ Phaser              *Skat::getPhaser(void)
 
 KreogCom            *Skat::getKreogCom(void)
 {
-    return _kreogCom;
+    return _Com;
 }
 
 void                Skat::fire(void)
@@ -64,7 +64,7 @@ void                Skat::fire(void)
 
 void                Skat::locate(void)
 {
-    _kreogCom->ping();
+    _Com->ping();
 }
 
 void                Skat::reload(void)
@@ -74,5 +74,11 @@ void                Skat::reload(void)
 
 KreogCom            &Skat::com(void)
 {
-    return *_kreogCom;
+    return *_Com;
 }
+
+// void                Skat::addCom(KreogCom *com)
+// {
+//     // com->addCom(com->getX(), com->getY(), com->getSerial());
+//     _Com->addCom(com);
+// }
