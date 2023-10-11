@@ -19,6 +19,7 @@ class                           Squad
         Skat                    at(int idx);
         void                    foreach(int beginIdx, void (Skat::*actionPtr)());
 
+
         int                     getPosXBegin(void);
         int                     getPosYBegin(void);
         Phaser::AmmoType        getAmmoType(void);

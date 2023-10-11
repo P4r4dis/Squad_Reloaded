@@ -98,11 +98,18 @@ Test(Squad, Test_Squad, .init = redirect_all_stdout)
 }
 
 
-Test(Squad, Test_Squad_foreach)//, .init = redirect_all_stdout)
+Test(Squad, Test_Squad_foreach, .init = redirect_all_stdout)
 {
     Squad   squad;
 
     squad.foreach(0, &Skat::fire);
+}
+
+Test(Squad, Test_Squad_localisation)//, .init = redirect_all_stdout)
+{
+    Squad   squad;
+
+    squad.localisation();
 }
 // Test(Phaser, test_Phaser_ctor)//, .init = redirect_all_stdout)
 // {
