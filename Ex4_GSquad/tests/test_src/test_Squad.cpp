@@ -61,3 +61,11 @@ Skat                **Squad::skats(void)
 {
     return _skat;
 }
+
+Skat                *Squad::at(int idx)
+{
+    if (idx >= 0 && idx < _size)
+        return _skat[idx];
+    else
+        return nullptr;
+}

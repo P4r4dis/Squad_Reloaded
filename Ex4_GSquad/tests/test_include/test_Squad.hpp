@@ -16,7 +16,7 @@ class                           Squad
         void                    localisation(void);
         int                     size(void);
         Skat                    **skats(void);
-        Skat                    at(int idx);
+        Skat                    *at(int idx);
         void                    foreach(int beginIdx, void (Skat::*actionPtr)());
 
 
