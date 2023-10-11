@@ -105,12 +105,21 @@ Test(Squad, Test_Squad_foreach, .init = redirect_all_stdout)
     squad.foreach(0, &Skat::fire);
 }
 
-Test(Squad, Test_Squad_localisation)//, .init = redirect_all_stdout)
+Test(Squad, Test_Squad_localisation, .init = redirect_all_stdout)
 {
     Squad   squad;
 
     squad.localisation();
 }
+
+
+Test(Squad, Test_Squad_Skats)//, .init = redirect_all_stdout)
+{
+    Squad   squad;
+
+    cr_assert(squad.skats() != nullptr);
+}
+
 // Test(Phaser, test_Phaser_ctor)//, .init = redirect_all_stdout)
 // {
 //     Phaser  p(5, Phaser::ROCKET);

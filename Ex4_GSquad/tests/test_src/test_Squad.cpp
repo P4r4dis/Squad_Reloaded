@@ -56,3 +56,8 @@ void                Squad::localisation(void)
 {
     foreach(0, &Skat::locate);
 }
+
+Skat                **Squad::skats(void)
+{
+    return _skat;
+}
