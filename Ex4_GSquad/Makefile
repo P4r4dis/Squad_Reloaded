@@ -15,6 +15,9 @@ CPPFLAGS	+= -Wall -Wextra -Werror -W -std=c++23 -Wfatal-errors $(INCFLAGS)
 
 
 SRCS		=	$(SRC_PATH)/Phaser.cpp \
+				$(SRC_PATH)/KreogCom.cpp \
+				$(SRC_PATH)/Skat.cpp \
+				$(SRC_PATH)/Squad.cpp \
 				$(BIN_PATH)/main.cpp
 
 SRC_TEST	=	$(TST_PATH)/$(NAME)_test.cpp

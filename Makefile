@@ -143,6 +143,7 @@ tests_run				:	fclean
 							Ex0 tests_run_Ex0 \
 							Ex1 tests_run_Ex1 \
 							Ex2 tests_run_Ex2 \
-							Ex3 tests_run_Ex3
+							Ex3 tests_run_Ex3 \
+							Ex4 tests_run_Ex4
 # Ex3 tests_run_Ex3
 # Ex4 tests_run_Ex4
